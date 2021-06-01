@@ -1,12 +1,11 @@
 /*Permutation of Inputted Character*/
-#include<string>
 #include<iostream>
 #include<fstream>
 using namespace std;
 static long long int check = 0;
 static int pri = 0;
 static string filesave;
-int pr(char* arr, int i, string s, int len)
+void pr(char* arr, int i, string s, int len)
 {
     if (i == 0) // when length has been reached
         {
@@ -26,7 +25,7 @@ int pr(char* arr, int i, string s, int len)
                     file.write(s.data(), s.size());
                 }
 
-            return 0;
+            return;
         }
 
     for (int j = 0; j < len; j++) // permutation block
@@ -35,16 +34,14 @@ int pr(char* arr, int i, string s, int len)
             pr(arr, i - 1, appended, len);
         }
 
-    return check;
+    return;
 }
 
 // function to print and limit all possible permutation
-int perm(char* arr,int len,int in,int out)
+void perm(char* arr,int len,int in,int out)
 {
-    long long int check;
     for (int i = in; i <= out; i++) // limiter
-        check = pr(arr, i, "", len);
-    return check;
+        pr(arr, i, "", len);
 }
 
 
@@ -76,7 +73,9 @@ int main()
 
     cout << endl <<"All Possible Permutation : " << endl;
   //  int len = sizeof(arr) / sizeof(arr[0]);
-    long long int check = perm(arr,arrsize,in,out);
-    cout << endl <<"No of Permutations : "<< check << endl;
+    perm(arr,arrsize,in,out);
+    cout << endl <<"No of Permutations : "<< check << endl<<endl;
+
+    system("pause");
     return 0;
 }
