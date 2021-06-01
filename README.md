@@ -1,6 +1,7 @@
 # character_permutation
 Written in C++
 Compiler: GNU GCC
+
 Permutation of inputted character set within specified range.
 
 This program will generate all permutations of n(input) charecter of size p(input) to q(input).
